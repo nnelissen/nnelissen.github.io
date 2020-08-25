@@ -14,7 +14,19 @@
 
 <body>
   <script src="js/scripts.js"></script>
-    <p>This is an example</p>
-    <a href="Control_dashboard.html">Default dashboard</a>
+    <p>Disclaimer: The data shown in the dashboards linked below are based on synthetic data and produced by a model which is still undergoing calibration. The data only serve as an example visualisation.</p>
+    
+    <p>Microsimulation model: <a href="https://github.com/Urban-Analytics/RAMP-UA">github.com/Urban-Analytics/RAMP-UA</a></p>
+    
+    <p>R package for epidemiological model: <a href=https://github.com/Urban-Analytics/rampuaR>github.com/Urban-Analytics/rampuaR</a></p>
+    
+    <h2>Example scenario comparison</h2>
+    
+    <p>The test scenario is a simulation what might happen if infectious people without symptoms (i.e. presymptomatic and asymptomatic) don't attempt to keep their distance, wear masks, wash hands etc. To keep it simple, only the hazard_multiplier parameter for presymptomatic and asymptomatic people is doubled. This means that when they visit a venue (like a shop), they increase that venue's danger score twice as much as in the control scenario (where they might adhere to social distancing better). Higher danger scores mean that susceptible people visiting the venue are more likely to become exposed and get sick.</p>
+    
+    <a href="Alt-Control_dashboard_scenarios.html">Scenario comparison dashboard</a>
+    <a href="Alt_dashboard.html">"Hidden transmission" scenario dashboard</a>
+    <a href="Control_dashboard.html">Default (control) scenario dashboard</a>
+    
 </body>
 </html>
