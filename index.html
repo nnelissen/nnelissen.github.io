@@ -1,55 +1,204 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <title>Natalie Nelissen</title>
 
-  <title>RAMP-UA dashboard example</title>
-  <meta name="description" content="example of RAMP dashboards">
-  <meta name="N Nelissen" content="Github">
-
-  <style>
-    div {
-      padding: 70px;
-      font-family: "Arial", Helvetica, sans-serif;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+        body {font-size:16px;}
+        .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+        .w3-half img:hover{opacity:1}
+        a {
+        color: #009688;
+        }
+        .imgopac2 { 
+            opacity: 0.5;
+            filter: alpha(opacity=50); /* For IE8 and earlier */
+        }
+        .imgopac2:hover {
+            opacity: 1.0;
+            filter: alpha(opacity=100); /* For IE8 and earlier */
+        }
+        .nn-text-teal,.nn-hover-text-blue:hover{color:#2373B1!important}
+        .nn-teal,.nn-hover-blue:hover{color:#fff!important;background-color:#2373B1!important}
+    </style>
 </head>
-
 <body>
-  <script src="js/scripts.js"></script>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Natalie<br>Nelissen</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>   
+    <a href="#projects" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Projects</a>  
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Natalie Nelissen</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="top">
+    <h1 class="w3-xxlarge"><b>Evidence based improvement</b></h1>
+  </div>
     
-    <div>
-    <p><i>Disclaimer: The data shown in the dashboards linked below are based on synthetic data and produced by a model which is still undergoing calibration. The data only serve as an example visualisation.</i></p>
-        
-    <br>
+  
+  <!-- About -->
+  <div class="w3-container" id="about" style="margin-top:75px">
+    <hr style="width:50px;border:5px solid #f1f1f1" class="w3-round"> <br> 
+    <h1 class="w3-xlarge w3-text-teal"><b>About</b></h1>
     
-    <p>Microsimulation model: <a href="https://github.com/Urban-Analytics/RAMP-UA">github.com/Urban-Analytics/RAMP-UA</a></p>
+    <img src="img/natalie.jpg" alt="Natalie" class="w3-third">
+      
+    <p>Hi, I'm Natalie (she/her) and I'm a data geek by day and arts and crafts enthusiast by night. I have a background in neuroscience and data science, but I'm interested in all aspects of evidence-based working. I love crocheting, writing and teaching, and dabbling into various random hobbies. I'm in a full time job as a data scientist in the public sector, but I try to set aside some time for freelance not-for-proft projects. Spotting, exploring or solving a problem, improving the efficiency or effectiveness of a process or product, data visualisation and story telling? If it involves data or other evidence (it usually should), I'm happy to help.</p>
+        
+    <p>You can find my CV <a href="docs/CV_NNelissen.pdf" target="_blank">here</a>, connect on <a href="https://www.linkedin.com/in/natalie-nelissen-6a28a97/" target="_blank">LinkedIn</a> or check my scientific publications on <a href="https://scholar.google.co.uk/citations?user=EXTM1r0AAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+        
+  </div>
     
-    <p>R package for epidemiological model: <a href=https://github.com/Urban-Analytics/rampuaR>github.com/Urban-Analytics/rampuaR</a></p>
-        
-    <p>More information about data and dashboard creation:<a href=https://github.com/Urban-Analytics/RAMP-UA/blob/master/notebooks/microsim_analysis.ipynb>github.com/Urban-Analytics/RAMP-UA/blob/master/notebooks/microsim_analysis.ipynb</a></p>
-        
-    <br>
-    
-    <h2>Example scenario comparison</h2>
-    
-    <p>The test scenario is a simulation what might happen if infectious people without symptoms (i.e. presymptomatic and asymptomatic) don't attempt to keep their distance, wear masks, wash hands etc. </p>
-    
-    <p>To keep it simple, only the hazard_multiplier parameter for presymptomatic and asymptomatic people is doubled. This means that when they visit a venue (like a shop), they increase that venue's danger score twice as much as in the control scenario (where they might adhere to social distancing better). Higher danger scores mean that susceptible people visiting the venue are more likely to become exposed and get sick.</p>
-        
-    <p>Tips: Right click and open the scenarios in different tabs, so you can easily switch between them. There are several ways to interact with plots, such as zooming, hovering and clicking on elements in the legend to hide/show them.</p>
-        
-    <ul>
-        <li><a href="Alt-Control_dashboard_scenarios.html">Scenario comparison dashboard</a></li>
-        <li><a href="Alt_dashboard.html">"Test" scenario dashboard</a></li>
-        <li><a href="Control_dashboard.html">Default (control) scenario dashboard</a></li>
-    </ul>
-        
-        
-        
+  <!-- Projects -->
+  <div class="w3-container" id="projects" style="margin-top:75px">
+    <hr style="width:50px;border:5px solid #f1f1f1" class="w3-round"> <br> 
+    <h1 class="w3-xlarge w3-text-teal"><b>Projects</b></h1>
+    <p>Below are some examples of the projects I've done. These will open in a seperate browser tab, so simply close them to return here.</p>
+  </div>    
+
+  <div class="w3-row-padding">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <a href="dashboard/dashboard.html" target="_blank">
+            <img src="img/dashboard.jpg" alt="covid dashboard" style="width:100%" class="imgopac2">
+        </a>    
+        <div class="w3-container">
+          <h3>COVID-19 dashboard</h3>
+          <p class="w3-opacity">Visualising large datasets</p>
+          <p>Interactive dashboard for a COVID-19 microsimulation (<a href="https://github.com/Urban-Analytics/RAMP-UA" target="_blank">Github repo</a>) made using Python and Bokeh. Try it yourself <a href="dashboard/dashboard.html" target="_blank"> here</a>.</p>
+        </div>
+      </div>
     </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <a href="https://www.care.vu/" target="_blank"> 
+            <img src="img/careview.jpg" alt="careview" style="width:100%" class="imgopac2">
+        </a>
+        <div class="w3-container">
+          <h3> Care View</h3>
+          <p class="w3-opacity">App evaluation</p>
+          <p>Evaluation of the <a href="https://www.care.vu/" target="_blank">Care View app</a> and its implementation. Check out the <a href="https://wearemhabitat.com/case-studies/care-view" target="_blank">evaluation report</a>, <a href="https://www.care.vu/wp-content/uploads/2020/09/CAREVIEW_Final-Visual-Summary.pdf" target="_blank">visual summary</a> or <a href="https://www.care.vu/virtual-demo/" target="_blank">training video</a>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <a href="asteroids/asteroids.html" target="_blank">
+            <img src="img/asteroids.jpg" alt="asteroids" style="width:100%" class="imgopac2">
+        </a>
+        <div class="w3-container">
+          <h3>Asteroids</h3>
+          <p class="w3-opacity">Cognitive games</p>
+            <p>A prototype for a gamified cognitive test. <a href="asteroids/asteroids.html" target="_blank">Play the game</a> to see how good you are with distractors and task switching.</p>
+        </div>
+      </div>
+    </div>
+  </div>
     
+    
+    
+    
+  <div class="w3-row-padding">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <a href="http://s3-eu-west-1.amazonaws.com/assets.wearemhabitat.com/Framework-for-the-effectiveness-evaluation-of-mobile-mental-health-tools.pdf" target="_blank">  
+            <img src="img/mandala.jpg" alt="mandala" style="width:100%" class="imgopac2">
+        </a>
+        <div class="w3-container">
+          <h3>Evaluation framework</h3>
+          <p class="w3-opacity">Evidence the benefits</p>
+          <p>Originally created to help evaluate mobile health tools in the NHS, <a href="http://s3-eu-west-1.amazonaws.com/assets.wearemhabitat.com/Framework-for-the-effectiveness-evaluation-of-mobile-mental-health-tools.pdf" target="_blank">this framework</a> is useful for non-experts in any field.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <a href="https://thejournalofmhealth.com/wp-content/uploads/2019/04/The-Journal-of-mHealth-6-2-Mar-Apr-RGB-EP-small.pdf" target="_blank">
+            <img src="img/dighealth.jpg" alt="dighealth" style="width:100%" class="imgopac2">
+        </a>
+        <div class="w3-container">
+          <h3> Opinion</h3>
+          <p class="w3-opacity">Evidence for mHealth</p>
+          <p><a href="https://thejournalofmhealth.com/wp-content/uploads/2019/04/The-Journal-of-mHealth-6-2-Mar-Apr-RGB-EP-small.pdf" target="_blank">Invited opinion piece</a> on the current situation regarding evidence for the effectiveness of health technology.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        
+            <img src="img/digitrans.jpg" alt="digitrans" style="width:100%" class="imgopac2">
+
+        <div class="w3-container">
+          <h3>Digitrans</h3>
+          <p class="w3-opacity">How to be Agile anywhere</p>
+            <p>A booklet on how to apply Agile principles, applied to the cultural sector but relevant to all. Digital booklet coming soon!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <hr style="width:50px;border:5px solid #f1f1f1" class="w3-round"> <br> 
+    <h1 class="w3-xlarge w3-text-teal"><b>Contact</b></h1>
+    <p>If you're interested in my work, or working with me, please get in touch! Drop me an email at natalie.nelissen@gmail.com</p>
+  </div>
+    
+  
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Copyright Natalie Nelissen. Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
 </body>
 </html>

@@ -1,0 +1,48 @@
+I would use the algorithm to compute the distance between a point (circle center) and a line (line AB). This can then be used to determine the intersection points of the line with the circle.
+
+Let say we have the points A, B, C. Ax and Ay are the x and y components of the A points. Same for B and C. The scalar R is the circle radius.
+
+Here is the algorithm
+
+// compute the euclidean distance between A and B
+LAB = sqrt( (Bx-Ax)²+(By-Ay)² )
+
+// compute the direction vector D from A to B
+Dx = (Bx-Ax)/LAB
+Dy = (By-Ay)/LAB
+
+// Now the line equation is x = Dx*t + Ax, y = Dy*t + Ay with 0 <= t <= 1.
+
+// compute the value t of the closest point to the circle center (Cx, Cy)
+t = Dx*(Cx-Ax) + Dy*(Cy-Ay)    
+
+// This is the projection of C on the line from A to B.
+
+// compute the coordinates of the point E on line and closest to C
+Ex = t*Dx+Ax
+Ey = t*Dy+Ay
+
+// compute the euclidean distance from E to C
+LEC = sqrt( (Ex-Cx)²+(Ey-Cy)² )
+
+// test if the line intersects the circle
+if( LEC < R )
+{
+    // compute distance from t to circle intersection point
+    dt = sqrt( R² - LEC²)
+
+    // compute first intersection point
+    Fx = (t-dt)*Dx + Ax
+    Fy = (t-dt)*Dy + Ay
+
+    // compute second intersection point
+    Gx = (t+dt)*Dx + Ax
+    Gy = (t+dt)*Dy + Ay
+}
+
+// else test if the line is tangent to circle
+else if( LEC == R )
+    // tangent point to circle is E
+
+else
+    // line doesn't touch circle
